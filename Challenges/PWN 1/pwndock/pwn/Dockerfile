@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -21,9 +21,9 @@ RUN mkdir /home/ctf/dev && \
     chmod 666 /home/ctf/dev/*
 
 RUN mkdir /home/ctf/bin && \
-    cp /home/CTF/sh /home/ctf/bin && \
-    cp /home/CTF/ls /home/ctf/bin && \
-    cp /home/CTF/cat /home/ctf/bin
+    cp /bin/sh /home/ctf/bin && \
+    cp /bin/ls /home/ctf/bin && \
+    cp /bin/cat /home/ctf/bin
 
 COPY ./ctf.xinetd /etc/xinetd.d/ctf
 COPY ./start.sh /start.sh
