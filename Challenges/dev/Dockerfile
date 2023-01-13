@@ -17,4 +17,4 @@ COPY . .
 
 
 CMD ["flask","run"] 
-EXPOSE "5000"
+EXPOSE 5000
