@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && apt-get install python-pip && \
+RUN apt-get update && apt-get install -y python-pip && \
     apt-get install -y python && \
     apt-get -y dist-upgrade
 RUN export FLAG='ShaastraCTF{Dev_t001s_are_dan9ger0u5_t0_u5e}'    
