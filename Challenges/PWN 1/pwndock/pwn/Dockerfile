@@ -21,9 +21,9 @@ RUN mkdir /home/ctf/dev && \
     chmod 666 /home/ctf/dev/*
 
 RUN mkdir /home/ctf/bin 
-COPY /bin/sh /home/ctf/bin
-COPY /bin/ls /home/ctf/bin 
-COPY /bin/cat /home/ctf/bin
+COPY /home/CTF/sh /home/ctf/bin
+COPY /home/CTF/ls /home/ctf/bin 
+COPY /home/CTF/cat /home/ctf/bin
 
 COPY ./ctf.xinetd /etc/xinetd.d/ctf
 COPY ./start.sh /start.sh
