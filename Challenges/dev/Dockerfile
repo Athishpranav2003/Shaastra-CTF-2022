@@ -1,20 +1,15 @@
-FROM ubuntu:18.04
-ENV DEBIAN_FRONTEND noninteractive
+FROM python:3.9-slim-buster
+WORKDIR /app
 
-RUN apt-get update && apt-get install -y python-pip && \
-    apt install -y python && \
-    apt-get -y dist-upgrade
 RUN export FLAG='ShaastraCTF{Dev_t001s_are_dan9ger0u5_t0_u5e}'    
 RUN readonly FLAG
-WORKDIR /app
-RUN pip install flask
-RUN pip install flask_sqlalchemy
-RUN pip install requests
-RUN pip install virtualenv
-RUN pip install python-dotenv
+COPY . /app
+RUN pip install -r requirements.txt
 RUN pip install virtualenvwrapper-win
-COPY . .
+RUN pip install virtualenvwrapper
 
+ENV FLASK_APP=app.py
+ENV FLASK_ENV=development
 
-CMD ["flask","run"] 
+CMD ["flask","run","--host", "0.0.0.0"] 
 EXPOSE 5000
