@@ -1,7 +1,7 @@
 version: '3'
 services:
   dock:
-    container_name: pwn3
+    container_name: pwn1
     build: pwn/
     ports:
       - "5000:9999"
