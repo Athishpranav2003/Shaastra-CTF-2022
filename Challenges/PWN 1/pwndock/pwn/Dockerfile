@@ -20,10 +20,10 @@ RUN mkdir /home/ctf/dev && \
     mknod /home/ctf/dev/urandom c 1 9 && \
     chmod 666 /home/ctf/dev/*
 
-RUN mkdir /home/ctf/bin 
-COPY ./sh /home/ctf/bin
-COPY ./ls /home/ctf/bin 
-COPY ./cat /home/ctf/bin
+RUN mkdir /home/ctf/bin && \
+    cp /bin/sh /home/ctf/bin && \
+    cp /bin/ls /home/ctf/bin && \
+    cp /bin/cat /home/ctf/bin
 
 COPY ./ctf.xinetd /etc/xinetd.d/ctf
 COPY ./start.sh /start.sh
@@ -39,4 +39,3 @@ RUN chown -R root:ctf /home/ctf && \
 CMD ["/start.sh"]
 
 EXPOSE 9999
-
