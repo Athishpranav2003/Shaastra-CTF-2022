@@ -3,5 +3,5 @@ services:
   dock:
     build: pwn/
     ports:
-      - "6000:9999"
+      - "4444:9999"
   
