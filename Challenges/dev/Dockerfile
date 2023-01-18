@@ -22,6 +22,9 @@ RUN pip install virtualenvwrapper
 RUN export FLAG=search_for_secret
 RUN export FLASK_APP=app.py
 RUN export FLASK_ENV=development
+USER root
+RUN chown -R ctf:ctf /home
+USER ctf
 
 
 CMD ["python3","-m","flask","run","--host", "0.0.0.0"] 

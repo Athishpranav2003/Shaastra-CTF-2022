@@ -2,8 +2,8 @@ services:
   ftp-server:
     container_name: my-ftp-server
     environment:
-      - FTP_PASS=123
-      - FTP_USER=user
+      - FTP_PASS=Shaastra_welcomes_you
+      - FTP_USER=CTFadmin
     image: garethflowers/ftp-server
     ports:
       - '20-21:20-21/tcp'

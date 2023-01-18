@@ -14,8 +14,8 @@ adduser \
 	$FTP_USER
 
 mkdir -p /home/$FTP_USER
-chown -R $FTP_USER:$FTP_USER /home/$FTP_USER
-cp /message /home/$FTP_USER
+chown -R root:$FTP_USER /home/$FTP_USER
+cp /home/message /home/$FTP_USER
 echo "$FTP_USER:$FTP_PASS" | /usr/sbin/chpasswd
 
 touch /var/log/vsftpd.log

@@ -1,6 +1,6 @@
 FROM alpine:3.16.3
-ENV FTP_USER=foo \
-	FTP_PASS=bar \
+ENV FTP_USER=CTFadmin \
+	FTP_PASS=Shaastra_welcomes_you \
 	GID=1000 \
 	UID=1000
 
