@@ -1,15 +1,28 @@
 FROM python:3.9-slim-buster
-WORKDIR /app
+RUN mkdir /secret
+COPY ./secret.txt /secret
+RUN chmod +r /secret
 
-RUN export FLAG='ShaastraCTF{Dev_t001s_are_dan9ger0u5_t0_u5e}'    
-RUN readonly FLAG
-COPY . /app
+
+
+RUN useradd -ms /bin/bash ctf
+RUN chown ctf /home
+USER ctf
+WORKDIR /home/ctf
+COPY ./app /home/ctf
+
+
+
+
+
+RUN cd /home/ctf/
 RUN pip install -r requirements.txt
 RUN pip install virtualenvwrapper-win
 RUN pip install virtualenvwrapper
+RUN export FLAG=search_for_secret
+RUN export FLASK_APP=app.py
+RUN export FLASK_ENV=development
 
-ENV FLASK_APP=app.py
-ENV FLASK_ENV=development
 
-CMD ["flask","run","--host", "0.0.0.0"] 
+CMD ["python3","-m","flask","run","--host", "0.0.0.0"] 
 EXPOSE 5000
