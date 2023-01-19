@@ -25,7 +25,7 @@ RUN export FLASK_ENV=development
 USER root
 RUN chown -R ctf:ctf /home
 USER ctf
-
+COPY logs.txt /home/ctf
 
 CMD ["python3","-m","flask","run","--host", "0.0.0.0"] 
 EXPOSE 5000

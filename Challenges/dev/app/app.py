@@ -82,5 +82,8 @@ def delete_city( name ):
     flash(f'Successfully deleted { city.name }!', 'success')
     return redirect(url_for('index_get'))
 @app.route('/developer')
-def print():
-    return "PIN : 171-611-673"
+def log():
+    with open("logs.txt", "r") as f:
+        content = f.read()
+    return content
+
